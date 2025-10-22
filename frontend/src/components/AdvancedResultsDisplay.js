@@ -10,7 +10,8 @@ import {
   FiZap,
   FiDownload,
   FiCopy,
-  FiCheckCircle
+  FiCheckCircle,
+  FiRefreshCw
 } from 'react-icons/fi';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import toast from 'react-hot-toast';
@@ -20,7 +21,7 @@ import SuggestionsList from './SuggestionsList';
 import SecurityConcernsList from './SecurityConcernsList';
 import MaintainabilityCard from './MaintainabilityCard';
 
-const AdvancedResultsDisplay = ({ results, onExport }) => {
+const AdvancedResultsDisplay = ({ results, onExport, onStartNew }) => {
   const [activeSection, setActiveSection] = useState('overview');
 
   const { 
@@ -92,6 +93,15 @@ const AdvancedResultsDisplay = ({ results, onExport }) => {
             <p className="text-indigo-100">Your code has been thoroughly analyzed with AI insights</p>
           </div>
           <div className="flex items-center gap-3">
+            <motion.button
+              onClick={onStartNew}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all duration-200 border border-white/20"
+            >
+              <FiRefreshCw className="w-5 h-5" />
+              Start New Analysis
+            </motion.button>
             <button
               onClick={() => onExport(results)}
               className="flex items-center gap-2 px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"

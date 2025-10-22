@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FiUpload, 
   FiCode, 
-  FiFileText, 
   FiDownload, 
   FiRefreshCw,
   FiAlertCircle,
@@ -18,7 +17,6 @@ const AdvancedCodeInput = ({ onAnalyze, onAdvancedAnalyze, onTranslate, onExport
   const [activeTab, setActiveTab] = useState('editor');
   const [code, setCode] = useState('');
   const [language, setLanguage] = useState('cpp');
-  const [translationMode, setTranslationMode] = useState(false);
   const [targetLanguage, setTargetLanguage] = useState('java');
   const fileInputRef = useRef(null);
 

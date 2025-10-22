@@ -22,6 +22,12 @@ function App() {
   const [results, setResults] = useState(null);
   const [translatedCode, setTranslatedCode] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const handleStartNew = () => {
+    setResults(null);
+    setTranslatedCode(null);
+    setLoading(false);
+  };
   const [error, setError] = useState(null);
 
   const handleAnalyze = async (input) => {
@@ -323,6 +329,7 @@ function App() {
                 <AdvancedResultsDisplay 
                   results={results} 
                   onExport={handleExport}
+                  onStartNew={handleStartNew}
                 />
               </motion.div>
             )}
